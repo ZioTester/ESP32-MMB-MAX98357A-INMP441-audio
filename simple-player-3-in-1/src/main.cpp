@@ -8,13 +8,18 @@
 ////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////
-
-#include <SPIFFS.h>
-
 #include "Arduino.h"
 #include "Audio.h"
-#include "SD.h"
-#include "WiFi.h"
+
+#ifdef STREAMING_EXAMPLE
+  #include "WiFi.h"
+#endif
+#ifdef SPIFFS_EXAMPLE
+  #include <SPIFFS.h>
+#endif
+#ifdef SDCARD_EXAMPLE
+  #include "SD.h"
+#endif
 
 Audio audio;
 SPIClass spiSD(VSPI);
